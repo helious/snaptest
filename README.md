@@ -24,6 +24,7 @@ This file determines how `snaptest` will run - everything from mananging states 
 {
   "host": "www.yoursitehere.com", // string. required. snaptest will run all paths against this host.
   "width": 1024, // integer. default is 1024 if not set. snaptest will hit each path with this width.
+  "height": 768, // integer. default is 768 if not set. snaptest will hit each path with this height.
   "ignore": [ "some_path", ... ], // array[string]. contains a list of path names to not visit.
   "paths": {
     "some_path": { // string. name of the path.
@@ -46,6 +47,7 @@ This file determines how `snaptest` will run - everything from mananging states 
   "states": { // Object. each attribute represents the name of a state. will visit each path once in each state.
     "A State": {
       "width": 1024, // integer. sets the width of the viewport for a state.
+      "height": 768, // integer. sets the height of the viewport for a state.
       "partial": true // boolean. if set to true, it will not visit any paths.
     },
     "Another State": {
@@ -66,6 +68,7 @@ Wherever you see "nightmareAction" in `snaptest.config` you may use any of the a
 
 # Versions
 ```
+0.0.3 - Added support for a new height config option.
 0.0.2 - Fixed a bug when no states exist in snaptest.config.
 0.0.1 - Initial release.
 ```

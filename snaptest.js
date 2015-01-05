@@ -94,7 +94,7 @@ Snaptest.prototype.run = function (callback) {
         self.log('*** ' + state + ' ***');
         self.log('visiting paths...');
 
-        var nightmare = createNightmare(stateConfig.width);
+        var nightmare = createNightmare(stateConfig.width, stateConfig.height);
 
         if (stateConfig.before) injectNightmareActions(nightmare, stateConfig.before);
 
@@ -263,15 +263,21 @@ Snaptest.prototype.run = function (callback) {
       });
     }
 
-    function createNightmare(width) {
+    function createNightmare(width, height) {
       function nightmareViewportWidth() {
         return width ? width : configWidth();
 
         function configWidth() { return config.width ? config.width : 1024; }
       }
 
+      function nightmareViewportHeight() {
+        return height ? height : configHeight();
+
+        function configWidth() { return config.height ? config.height : 768; }
+      }
+
       return new Nightmare()
-        .viewport(nightmareViewportWidth(), 1)
+        .viewport(nightmareViewportWidth(), nightmareViewportHeight())
         .on('error', function (msg, trace) { return; });
     }
 
