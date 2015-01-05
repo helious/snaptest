@@ -62,7 +62,7 @@ This file determines how `snaptest` will run - everything from mananging states 
 ```
 
 ### [Nightmare](https://github.com/segmentio/nightmare) actions
-wherever you see "nightmareAction" in `snaptest.config` you may use any of the actions listed at https://github.com/segmentio/nightmare#interact. For actions requiring no arguments, pass an empty array.
+Wherever you see "nightmareAction" in `snaptest.config` you may use any of the actions listed at https://github.com/segmentio/nightmare#interact. For actions requiring no arguments, pass an empty array.
 
 # Versions
 ```
