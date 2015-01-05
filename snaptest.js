@@ -273,7 +273,7 @@ Snaptest.prototype.run = function (callback) {
       function nightmareViewportHeight() {
         return height ? height : configHeight();
 
-        function configWidth() { return config.height ? config.height : 768; }
+        function configHeight() { return config.height ? config.height : 768; }
       }
 
       return new Nightmare()
