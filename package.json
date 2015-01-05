@@ -1,6 +1,6 @@
 {
   "name": "snaptest",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "automated website screenshotting command line tool and library",
   "bin": {
     "snaptest": "cli.js",

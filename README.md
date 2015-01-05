@@ -68,6 +68,7 @@ Wherever you see "nightmareAction" in `snaptest.config` you may use any of the a
 
 # Versions
 ```
+0.0.6 - Actually fixed the bug that 0.0.5 should have fixed!
 0.0.5 - Fixed state inheritance issue.
 0.0.4 - Fixed a bug with new height option.
 0.0.3 - Added support for a new height config option.

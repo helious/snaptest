@@ -228,11 +228,11 @@ Snaptest.prototype.run = function (callback) {
     function getStateConfig(state) {
       if (!state || !config.states) return {};
 
-      var stateConfig = Object.create(config.states[state]);
+      var stateConfig = config.states[state];
 
       if (stateConfig.inherits) {
         stateConfig.inherits.forEach(function (inheritedState) {
-          var inheritedStateConfig = config.states[inheritedState];
+          var inheritedStateConfig = Object.create(config.states[inheritedState]);
 
           inheritedStateConfig.partial = null;
 
