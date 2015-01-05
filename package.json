@@ -1,7 +1,7 @@
 {
   "name": "snaptest",
   "version": "0.0.1",
-  "description": "snaptest is a CLI that will run thru your Rails routes and take screenshots of the rendered pages (with the capabilities of running arbitrary actions).",
+  "description": "automated website screenshotting command line tool and library",
   "bin": {
     "snaptest": "cli.js",
     "snaptest-rails": "rails/cli.js"
