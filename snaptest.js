@@ -4,7 +4,8 @@ var fs = require('fs'),
 
 function Snaptest () {
   this.DEFAULTS = {
-    'configFilename': 'snaptest.json'
+    'configFilename': 'snaptest.json',
+    'resultsDirectory': 'snaptest'
   };
 
   this.paths = [];
@@ -59,7 +60,7 @@ Snaptest.prototype.run = function (callback) {
 
   self.log('visiting all paths...');
 
-  if (!fs.existsSync('snaptest')) fs.mkdir('snaptest');
+  if (!fs.existsSync(self.DEFAULTS.resultsDirectory)) fs.mkdir(self.DEFAULTS.resultsDirectory);
 
   snapPathsForState(0);
 
@@ -117,9 +118,9 @@ Snaptest.prototype.run = function (callback) {
             var pathPngPath;
 
             if (pathCase.name)
-              pathPngPath = 'snaptest/' + state + '-' + path + '-' + pathCase.name + '.png';
+              pathPngPath = self.DEFAULTS.resultsDirectory + '/' + state + '-' + path + '-' + pathCase.name + '.png';
             else
-              pathPngPath = 'snaptest/' + state + '-' + path + '.png';
+              pathPngPath = self.DEFAULTS.resultsDirectory + '/' + state + '-' + path + '.png';
 
             var url = pathObject[path];
 
@@ -225,6 +226,8 @@ Snaptest.prototype.run = function (callback) {
     }
 
     function getStateConfig(state) {
+      if (!state || !config.states) return {};
+
       var stateConfig = config.states[state];
 
       if (stateConfig.inherits) {
@@ -243,7 +246,7 @@ Snaptest.prototype.run = function (callback) {
     }
 
     function runFinished() {
-      var resultsHtml = fs.createWriteStream('snaptest/results.html');
+      var resultsHtml = fs.createWriteStream(self.DEFAULTS.resultsDirectory + '/results.html');
 
       resultsHtml.once('open', function () {
         fs.readFile(__dirname + '/results.html', 'utf8', function (err, data) {
@@ -253,7 +256,7 @@ Snaptest.prototype.run = function (callback) {
 
           resultsHtml.end(html);
 
-          self.log('view results in snaptest/results.html');
+          self.log('view results in ' + self.DEFAULTS.resultsDirectory + '/results.html');
 
           if (callback) callback();
         });

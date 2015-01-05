@@ -66,5 +66,6 @@ Wherever you see "nightmareAction" in `snaptest.config` you may use any of the a
 
 # Versions
 ```
+0.0.2 - Fixed a bug when no states exist in snaptest.config.
 0.0.1 - Initial release.
 ```
