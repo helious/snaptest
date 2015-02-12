@@ -9,7 +9,7 @@ npm install snaptest -g
 snaptest
 ```
 
-This command will run through the `snaptest.config` file in the current directory. If it is not found, a generic one will be made.
+This command will run through the `snaptest.json` file in the current directory. If it is not found, a generic one will be made.
 
 ```bash
 snaptest-rails
@@ -17,8 +17,8 @@ snaptest-rails
 
 This command is the same as `snaptest`, but it will go talk to your Rails application to mine your "named routes" and add them to the `Snaptest.path` array as long as the directory you run this from is a Rails application.
 
-## snaptest.config
-This file determines how `snaptest` will run - everything from mananging states or to the width at which you'd like to snap screenshots. Here's a sample `snaptest.config` file below:
+## snaptest.json
+This file determines how `snaptest` will run - everything from mananging states or to the width at which you'd like to snap screenshots. Here's a sample `snaptest.json` file below:
 
 ```javascript
 {
@@ -64,7 +64,7 @@ This file determines how `snaptest` will run - everything from mananging states 
 ```
 
 ### [Nightmare](https://github.com/segmentio/nightmare) actions
-Wherever you see "nightmareAction" in `snaptest.config` you may use any of the actions listed at https://github.com/segmentio/nightmare#interact. For actions requiring no arguments, pass an empty array.
+Wherever you see "nightmareAction" in `snaptest.json` you may use any of the actions listed at https://github.com/segmentio/nightmare#interact. For actions requiring no arguments, pass an empty array.
 
 # Versions
 ```
@@ -72,6 +72,6 @@ Wherever you see "nightmareAction" in `snaptest.config` you may use any of the a
 0.0.5 - Fixed state inheritance issue.
 0.0.4 - Fixed a bug with new height option.
 0.0.3 - Added support for a new height config option.
-0.0.2 - Fixed a bug when no states exist in snaptest.config.
+0.0.2 - Fixed a bug when no states exist in snaptest.json.
 0.0.1 - Initial release.
 ```
